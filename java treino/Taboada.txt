@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class tabuada {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n;
+
+        while (true) {
+            System.out.print("Digite um número para ver na tabuada (digite um número negativo para sair): ");
+            n = scanner.nextInt();
+            if (n < 0) {
+                break;
+            }
+            for (int i = 1; i <= 10; i++) {
+                System.out.println(n + " x " + i + " = " + (n * i));
+            }
+            System.out.println();
+        }
+
+        scanner.close();
+    }
+}

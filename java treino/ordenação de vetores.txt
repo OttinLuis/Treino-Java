@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Treino {
+    int cont, contA, contB, aux;
+    int[] vet = new int[3];
+    Scanner sc = new Scanner(System.in);
+
+    Treino(){
+        for (cont = 0; cont <= 2; cont++){
+            System.out.println("Digite um número:");
+            vet[cont] = sc.nextInt();
+        }
+    }
+
+    void exibirVetor(){
+        for (contA = 0; contA < vet.length - 1; contA++) {
+            for (contB = 0; contB < vet.length - 1 - contA; contB++) {
+                if (vet[contB] > vet[contB + 1]) {
+                    aux = vet[contB];
+                    vet[contB] = vet[contB + 1];
+                    vet[contB + 1] = aux;
+                }
+            }
+        }
+  
+        for (contA = 0; contA < vet.length; contA++) {
+            System.out.println(vet[contA] + " ");
+        }
+    }
+
+    public static void main(String[] args){
+        Treino treino = new Treino();
+        treino.exibirVetor();
+    }
+}

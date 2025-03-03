@@ -1,0 +1,25 @@
+Fatorial
+
+import java.util.Scanner;
+
+public class fatorial {
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    while (true) {
+        System.out.print("digite um numero para calcular fatorial: ");
+        int n = sc.nextInt();
+        if (n < 0) {
+            System.out.println("o numero deve ser maior ou igual zero");
+            break;
+        }
+        int resultado = 1;
+        for (int i = 1; i <= n; i++) {
+            resultado *= i;
+        }
+        System.out.println("o fatorial de " + n + "=" + resultado);
+        System.out.println();
+    }
+    sc.close();
+}
+}
+

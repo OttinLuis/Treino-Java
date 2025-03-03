@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class calculadora {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("===Calculadora simples=== ");
+        System.out.print("Digite um numero: ");
+        double num1 = sc.nextDouble();
+        System.out.print("Digite o segundo numero: ");
+        double num2 = sc.nextDouble();
+
+        System.out.print("Escolha a operação: ");
+        System.out.println("[1]+");
+        System.out.println("[2]*");
+        System.out.println("[3]-");
+        System.out.print("opcao: ");
+        int opcao = sc.nextInt();
+
+        double resultado = 0;
+        boolean operacaoValida = true;
+        switch (opcao) {
+            case 1:
+                resultado = num1 + num2;
+                break;
+            case 2:
+                resultado = num1 * num2;
+                break;
+            case 3:
+                resultado = num1 - num2;
+                break;
+        }
+    if (operacaoValida) {
+        if (resultado == (int) resultado) {
+            System.out.println("resultado: \n"+ (int)resultado);
+        }else {
+            System.out.println("resultado:\n"+ resultado);
+        }
+        System.out.println("Opereão realizada com sucesso");
+    }
+    sc.close();
+    }
+
+
+}
+
+
+

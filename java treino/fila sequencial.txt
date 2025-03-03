@@ -1,0 +1,75 @@
+class Fila {
+    private int[] fila;
+    private int capacidade;
+    private int frente;
+    private int tras;
+    private int tamanho;
+
+    public Fila(int capacidadeInicial) {
+        this.capacidade = capacidadeInicial;
+        this.fila = new int[capacidade];
+        this.frente = 0;
+        this.tras = -1;
+        this.tamanho = 0;
+    }
+
+    public void enqueue(int elemento) {
+        if (tamanho == capacidade) {
+            System.out.println("Fila está cheia, não é possível adicionar mais elementos");
+            return;
+        }
+        tras = (tras + 1) % capacidade;
+        fila[tras] = elemento;
+        tamanho++;
+    }
+
+    public void dequeue() {
+        if (tamanho == 0) {
+            System.out.println("A fila está vazia, sem elementos para remover");
+            return;
+        }
+        frente = (frente + 1) % capacidade;
+        tamanho--;
+    }
+
+    public void expand() {
+        int novaCapacidade = capacidade * 2;
+        int[] novaFila = new int[novaCapacidade];
+        for (int i = 0; i < tamanho; i++) {
+            novaFila[i] = fila[(frente + i) % capacidade];
+        }
+        fila = novaFila;
+        capacidade = novaCapacidade;
+        frente = 0;
+        tras = tamanho - 1;
+        System.out.println("Fila expandida para " + capacidade + " posições");
+    }
+
+    public void printFila() {
+        if (tamanho == 0) {
+            System.out.println("Fila está vazia");
+            return;
+        }
+        System.out.println("Fila:");
+        for (int i = 0; i < tamanho; i++) {
+            System.out.print(fila[(frente + i) % capacidade] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Fila fila = new Fila(5);
+        fila.enqueue(1);
+        fila.enqueue(2);
+        fila.enqueue(3);
+        fila.enqueue(4);
+        fila.enqueue(5);
+        fila.printFila();
+        fila.dequeue();
+        fila.printFila();
+        fila.expand();
+        fila.enqueue(6);
+        fila.enqueue(7);
+        fila.printFila();
+    }
+}

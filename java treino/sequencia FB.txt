@@ -1,0 +1,35 @@
+sequencia FB
+ 
+import java.util.Scanner;
+
+public class SequenciaFibonacci {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Digite um número da sequência Fibonacci: ");
+        int n = sc.nextInt();
+        gerarFibonacci(n);
+        sc.close();
+    }
+    public static void gerarFibonacci(int n) {
+        if (n < 0) {
+            System.out.println("o numero deve ser maior que zero");
+            return;
+        }
+        long a = 0, b = 1;
+        System.out.print(a + " sequencia de fibonacci: ");
+        if (n < 1){
+            System.out.print(a + " ");
+        }
+        if (n < 2){
+            System.out.print(b + " ");
+        }
+        for (int i = 3; i <= n; i++) {
+        long temp = a + b;
+        System.out.print(temp + " ");
+        a = b;
+        b = temp;
+        }
+    System.out.println();
+    }
+
+}
